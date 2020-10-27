@@ -1,4 +1,4 @@
-# ComposeDrawer
+# Compose Debug Drawer
 
 Composable Debug Drawer for Jetpack Compose apps
 
