@@ -2,11 +2,7 @@ plugins {
     id("com.android.library")
     kotlin("multiplatform")
     id("org.jetbrains.compose")
-    id("com.jfrog.bintray")
-    id("maven-publish")
 }
-
-apply(from = "../publication.gradle")
 
 android {
     compileSdkVersion(30)

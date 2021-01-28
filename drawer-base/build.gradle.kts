@@ -2,11 +2,10 @@ plugins {
     id("com.android.library")
     kotlin("multiplatform")
     id("org.jetbrains.compose")
-    id("com.jfrog.bintray")
-    id("maven-publish")
+    NexusPublish
+    Dokka
+    Versioning
 }
-
-apply(from = "../publication.gradle")
 
 android {
     compileSdkVersion(30)
@@ -39,7 +38,9 @@ android {
 
 kotlin {
     jvm()
-    android()
+    android {
+        publishLibraryVariants("release", "debug")
+    }
 
     sourceSets {
         commonMain {

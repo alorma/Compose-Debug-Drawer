@@ -1,11 +1,9 @@
-name: Release workflow
+name: Main
 
 on:
   push:
     branches:
       - main
-    tags:
-      - '*'
 
 jobs:
   build:
@@ -18,14 +16,7 @@ jobs:
       - name: Set up Java
         uses: actions/setup-java@v1
         with:
-          java-version: 11
-
-      - name: Import GPG key
-        id: import_gpg
-        uses: crazy-max/ghaction-import-gpg@v3
-        with:
-          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }}
+          java-version: 15
 
       - name: Gradle cache
         uses: actions/cache@v2
@@ -38,16 +29,21 @@ jobs:
             ${{ runner.os }}-gradle-
 
       - name: Build
-        run: ./gradlew build --build-cache
+        run: ./gradlew build
+
+      - name: Tests
+        run: ./gradlew check
+
+      - name: Generate tests report
+        run: ./gradlew jacocoTestReport
+
+      - name: Generate docs
+        run: ./gradlew dokkaHtmlMultiModule
 
       - name: Maven publish
         env:
-          OSS_USER: ${{ secrets.OSS_USER }}
-          OSS_TOKEN: ${{ secrets.OSS_TOKEN }}
-        run: ./gradlew publish -Psigning.gnupg.keyName=${{ secrets.GPG_KEY_NAME }} -Psigning.gnupg.passphrase=${{ secrets.PASSPHRASE }}
-
-      - name: Close Maven repository
-        env:
-          OSS_USER: ${{ secrets.OSS_USER }}
-          OSS_TOKEN: ${{ secrets.OSS_TOKEN }}
-        run: ./gradlew closeRepository
+          ossUser: ${{ secrets.ossUser }}
+          ossToken: ${{ secrets.ossToken }}
+          gpgKeyName: ${{ secrets.gpgKeyName }}
+          gpgPassphrase: ${{ secrets.gpgPassphrase }}
+        run: ./gradlew publishToSonatype -PisLibRelease=false
