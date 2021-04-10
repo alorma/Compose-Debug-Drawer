@@ -96,9 +96,9 @@ You can build any of the provided actions, or build your own.
 
 *Actions*
 
-* ButtonAction: Shows a `Button` with given text, and register a lambda to receive it's click
+* ButtonAction: Shows a `Button` with given text, and register a lambda to receive its click
 
-* SwitchAction: Shows a `Switch` and register a lambda to receive it's changes
+* SwitchAction: Shows a `Switch` and register a lambda to receive its changes
 
 #### Build Module
 
@@ -108,7 +108,7 @@ Shows information about the app: Version code, Version name and Package
 
 #### Device Module
 
-Shows information about device running the app such as Device, and manufacturer
+Shows information about device running the app such as model and manufacturer
 
 <img width="160" src="art/device_module.png" />
 
