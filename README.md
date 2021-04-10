@@ -179,7 +179,7 @@ If you want to modify the drawer colors, use `DebugDrawerDefaults.colors.copy(..
 
 ### Modules list UI
 
-Update module UI by pass `Modifier`
+Update each module's UI by passing a `Modifier`
 
 ```kotlin
 DebugDrawerLayout(
@@ -190,6 +190,18 @@ DebugDrawerLayout(
             .background(color = MaterialTheme.colors.surface)
         DeviceModule(modulesModifier)
         BuildModule(modulesModifier)
+    }
+)
+```
+
+Or configure the whole contents by specifying a `drawerContentModifier`
+
+```kotlin
+DebugDrawerLayout(
+    drawerContentModifier = Modifier.padding(16.dp),
+    drawerModules = {
+        DeviceModule()
+        BuildModule()
     }
 )
 ```

@@ -158,6 +158,7 @@ fun DebugDrawerLayout(
     drawerColors: Colors = DebugDrawerDefaults.Colors,
     drawerShape: Shape = MaterialTheme.shapes.large,
     drawerElevation: Dp = DebugDrawerDefaults.Elevation,
+    drawerContentModifier: Modifier = Modifier,
     drawerModules: @Composable ColumnScope.(DebugDrawerState) -> Unit = { },
     bodyContent: @Composable (DebugDrawerState) -> Unit,
 ) {
@@ -230,7 +231,11 @@ fun DebugDrawerLayout(
                     shape = drawerShape,
                     elevation = drawerElevation
                 ) {
-                    Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+                    Column(
+                        modifier = Modifier
+                            .verticalScroll(rememberScrollState())
+                            .then(drawerContentModifier)
+                    ) {
                         drawerModules(debugDrawerState)
                     }
                 }
