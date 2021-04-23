@@ -1,9 +1,11 @@
 plugins {
     id("com.android.library")
     kotlin("android")
+    `javiersc-publish-android-library`
 }
 
-apply(from = "${rootProject.projectDir}/scripts/publish-mavencentral.gradle")
+group = checkNotNull(properties["libGroup"]?.toString())
+version = checkNotNull(properties["libVersion"]?.toString())
 
 android {
     compileSdkVersion(30)

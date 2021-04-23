@@ -46,9 +46,9 @@ android {
 dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.1.5")
 
-    debugImplementation(project(":drawer-ui-modules"))
-    debugImplementation(project(":drawer-modules"))
-    debugImplementation(project(":drawer-base"))
+    implementation(project(":drawer-ui-modules"))
+    implementation(project(":drawer-modules"))
+    implementation(project(":drawer-base"))
 
     implementation("androidx.activity:activity-compose:1.3.0-alpha07")
 
