@@ -34,7 +34,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.0.0-beta08"
+        kotlinCompilerExtensionVersion = "1.0.0-beta09"
     }
 
     lint {
@@ -52,11 +52,11 @@ dependencies {
 
     implementation("androidx.activity:activity-compose:1.3.0-alpha08")
 
-    implementation("androidx.compose.foundation:foundation:1.0.0-beta08")
-    implementation("androidx.compose.foundation:foundation-layout:1.0.0-beta08")
-    implementation("androidx.compose.ui:ui:1.0.0-beta08")
-    implementation("androidx.compose.material:material:1.0.0-beta08")
-    implementation("androidx.compose.ui:ui-tooling:1.0.0-beta08")
+    implementation("androidx.compose.foundation:foundation:1.0.0-beta09")
+    implementation("androidx.compose.foundation:foundation-layout:1.0.0-beta09")
+    implementation("androidx.compose.ui:ui:1.0.0-beta09")
+    implementation("androidx.compose.material:material:1.0.0-beta09")
+    implementation("androidx.compose.ui:ui-tooling:1.0.0-beta09")
 
     implementation("androidx.core:core-ktx:1.5.0")
     implementation("androidx.appcompat:appcompat:1.4.0-alpha01")
